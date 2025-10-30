@@ -1,0 +1,59 @@
+#1 ctf[404]
+	Pixel flag tried loads of stuff no leads 
+
+#2 ctf[aguess]
+checked export objects FTP found a ctf.txt read document ctf[aguess] last 2 words of the 4th sentence 
+
+#3 ctf[Matrix]
+Exported http objects --> opened index tried CTRL + scrollwheel for zooming in/out by 10% until i stumbled upon ctf[Matrix] at 190% zoomed in
+
+#4 ctf[FISH]
+check http objects found monster something file, saw it was bas64 encoded decoded it, asked chat gpt waht it was learned it was a sound file got him to turn it into different versions slowed,fast, reversed etc got stuck here.
+classmate saw me finding a flag that they were stuck on so we traded flags got this one, apparently i should've removed the high pitch didn't know it was possible and from there reverse to get the letters and run it through base32
+
+
+#5 CTF[cutenessie4eva]
+Checked password policy object didn't learn much but checked the surrounding packages and found 2984 with PASS 983e3a1fbb4232fff96282ab9a37f89a found out it to be md5 encoded gave it to john with rockyou and got [emerald] is this the flag who knows xD it seems my feeling of doubt was right it was not, created a custom rule in john.conf to encapsulate all my rockyou passwords in ctf[X]
+
+#6 ctf[H*cka]
+packet310 mail photo Marmaduke PHOTOS.img / Nice photo of nessie
+decoded with base64
+put output in a disk.img
+mounted the disk using mount -o loop
+can see the pictures of nessie in different scenarios and the sherLOCH with MISAM file but am stuck here
+Also found ctf[q3zRz] in beach.png, with Xor hex key 19 can turn into ctf[H*cka]. dont think this is a flag but its the best I've got.
+
+
+#7 ctf[Resurrection]
+Packet 205 mail  from hdesk attachement sessionstore.jsonlz4
+Decoded with Bas64
+saved output
+used file output
+found out its mozilla lz4
+decompressed with lz4jsoncat
+jq '.' output.json | less to make it readable
+got stuck here
+got a hint from a friend 
+https://cert.se/#16n4[2t
+https://cert.se/#13t1c3f
+https://cert.se/#17]12c5r
+https://cert.se/#6e8u11e
+https://cert.se/#15o7s9r
+https://cert.se/#10r14i
+letter after each number 1->17 reveals the flag
+
+#8 ctf[404]
+favicon.ico 
+
+#9 ctf[keylog_over_udp]
+checked UDP packages thought there might be something with the dns error,when  stumbled up the long list of short base64 encoded bits, decoded them and got a bunch of different inputs after eachother leading up to the flag.
+
+#10 ctf[strings_or_cat?]
+used 'strings <pcap> | grep "ctf"'command on the whole pcap file and a flag popped up, is it a real flag feels tooeasy after all the others.
+
+
+
+
+
+Nicolas hidalgo[Shuti] Student at Frans Schartuas Handelsinstitut.
+  
