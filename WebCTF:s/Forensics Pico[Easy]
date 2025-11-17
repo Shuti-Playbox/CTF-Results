@@ -1,0 +1,32 @@
+Riddle Registry
+From the Challenge i receive a Confidential PDF with most information redacted and a hint to check Metadata.
+So i use EXIFTOOL and find a base64 encoded string in the author section which i then decode with base64 -d and get the FLAG
+
+Hidden in Plainsight
+From the Challenge i receive a img.jpg of a bunch of numbers on a screen but nothing that seems to lead to a flag.
+So try EXIFTOOL once again and find another Base64 encoded string which decodes into "steghide:cEF6endvcmQ=" decoding the last part turns in pAzzword
+Taking that suggestion i use STEGHIDE on the image with correlating password and get flag.txt 
+
+Flag in Flame
+From the Challenge i receive a log.txt with a bunch of text but on a closer inspection it looks like a long base64 string, decodeing this i get something that looks like a files binary data.
+I overwrite the orignally bas64 string with this new binary data and try FILE on the log.txt and see that it is PNG image data so convert it to log.png and open it and se an image of a typcal hacker.
+Below the hacker is a long row of numebrs and letters after getting the letters from an online text scanner and then since i wasnt aware what this combination of letters and number are i threw it into Dencode.com,
+which showed me that it is hexencoded and gave me the FLAG
+
+Corrupted file
+From the Challegne i received a "file". since the name of the challenge was corrupted i checked header with xxd and JPEG header was wrong, header for the file was 5c78 and a JPEG Header is supposed to be FFD8 in hexadecimals, 
+so i exported the original file with xxd and changed the header to FFD8 and then converted it back with "xxd -r"
+And  there was the flag 
+
+RED
+From the challenge i received a red.png which was jsut that a image of the colour red, starting with EXIFTOOL to check the metadata and i see a long poem with every part having some connection red, 
+but after some loong thinking i realized that some letters were capitalized, reading only these we get  C H E C K  L S B. having no idea what this meant i had to turn to Google and learnt it was least significant bit.
+After learning this i had to research how to check this LSB and found zsteg and this was also my first time installing via RubyGems.
+So i checked zsteg help page and saw an option for lsb "--lsb" and use this and got not only the poem but a repeating basse64 encoded string after decoding i got the FLAG
+
+Ph4nt0m 1ntrud3r
+From this challenge i receive a PCAP file, i opened it in wireshark and started analyzing the packets.
+Quite quickly i saw that all of them have short Bas64 encoded strings and started decodeing them in the order of the packet numbers. After assembling all of them i could se some plaintext and some non readable stuff.
+First i tried to reorder them and realized that some of the decoded string wre completely unreadably so i went back to wireshark to see if i missed something and realized most packets has negetive time on them.
+So i once again only grabbed the non-negative time packets base64 strings and decoded them and now had a readable FLAG.
+
