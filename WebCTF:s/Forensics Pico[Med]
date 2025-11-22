@@ -1,0 +1,6 @@
+Disko 2
+In this challenge i received a disk image with the description "The right one is in Linux", so at first i thought the flag would be correlated to linux.
+so i tried using strings on the whole and grep for linux which and while it was printing out alot of information i saw that there were a BUNCh of dummy flags.
+So i decided to check the partitions with binwalk and grep for Linux instead to which i found one partition, and i extracted this specific partition with the dd command.
+and after geting out the Linux partition i once again used strings X | grep pico since the flag format is picoCTF and there i found the flag!
+
